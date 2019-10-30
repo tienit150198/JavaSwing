@@ -1,0 +1,11 @@
+package pro03;
+
+public class BookItem extends Item{
+	int weight;
+	@Override
+	public double getPriceShip() {
+		
+		return 0;
+	}
+
+}

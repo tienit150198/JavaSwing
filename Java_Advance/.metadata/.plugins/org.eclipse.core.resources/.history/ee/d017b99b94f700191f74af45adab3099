@@ -1,0 +1,39 @@
+package pro03;
+
+public class Customer {
+	Basket basket;
+	String name;
+
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Customer(String name, Basket basket) {
+		super();
+		this.name = name;
+		this.basket = basket;
+	}
+
+	Basket getBasket() {
+		return basket;
+	}
+
+	String getName() {
+		return name;
+	}
+
+	void setBasket(Basket basket) {
+		this.basket = basket;
+	}
+
+	void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [name=" + name + ", basket=" + basket + "]";
+	}
+
+}

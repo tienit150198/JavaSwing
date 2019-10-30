@@ -1,0 +1,10 @@
+package pro03;
+
+import java.util.List;
+
+public class Customer {
+	String name;
+	double priceTotal;
+	List<BookItem> booklist;
+	List<Sofware> sofwarelist;
+}

@@ -1,0 +1,39 @@
+package pro03;
+
+public class Sofware extends ShopItem {
+	int noCD;
+
+	public Sofware() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Sofware(int noCD) {
+		super();
+		this.noCD = noCD;
+	}
+
+	public Sofware(String id, String iName, String iPrice, int iQttt) {
+		super(id, iName, iPrice, iQttt);
+		// TODO Auto-generated constructor stub
+	}
+
+	int getNoCD() {
+		return noCD;
+	}
+
+	@Override
+	public double getPriceShip() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	void setNoCD(int noCD) {
+		this.noCD = noCD;
+	}
+
+	@Override
+	public String toString() {
+		return "Sofware [noCD=" + noCD + "]";
+	}
+}

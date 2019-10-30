@@ -1,0 +1,44 @@
+package pro03;
+
+public class Book extends ShopItem {
+	double weight;
+
+	public Book() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Book(int id, String iName, double iPrice, int iQttt) {
+		super(id, iName, iPrice, iQttt);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Book(double weight, int id, String iName, double iPrice, int iQttt) {
+		super(id, iName, iPrice, iQttt);
+		this.weight = weight;
+	}
+
+	public Book(double weight) {
+		super();
+		this.weight = weight;
+	}
+
+	@Override
+	public void display() {
+		System.out.println("ID: " + id + " - " + "Name: " + iName + " - " + "Price: " + iPrice + " - " + "Weight: "
+				+ weight + " - " + "Number: " + iQttt);
+	}
+
+	@Override
+	public void input() {
+		System.out.print("Enter Name: ");
+		iName = Validate.checkInputString();
+		System.out.print("Enter price: ");
+		iPrice = Validate.checkInputDouble();
+		System.out.print("Enter weight: ");
+		weight = Validate.checkInputInt();
+		System.out.print("Enter number: ");
+		iQttt = Validate.checkInputInt();
+	}
+
+}

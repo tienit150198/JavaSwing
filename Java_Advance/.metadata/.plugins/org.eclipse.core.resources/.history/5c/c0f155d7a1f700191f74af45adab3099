@@ -1,0 +1,61 @@
+package pro03;
+
+public class Software extends ShopItem {
+	int noCD;
+
+	public Software() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Software(int noCD) {
+		super();
+		this.noCD = noCD;
+	}
+
+	public Software(int id, String iName, double iPrice, int iQttt) {
+		super(id, iName, iPrice, iQttt);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Software(int noCD, String id, String iName, double iPrice, int iQttt) {
+		super(id, iName, iPrice, iQttt);
+		this.noCD = noCD;
+	}
+
+	int getNoCD() {
+		return noCD;
+	}
+
+	@Override
+	public double getPriceShip() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	void setNoCD(int noCD) {
+		this.noCD = noCD;
+	}
+
+	@Override
+	public String toString() {
+		return "Sofware [noCD=" + noCD + "]";
+	}
+	
+	@Override
+	public void input() {
+		System.out.print("Enter Name: ");
+		iName = Validate.checkInputString();
+		System.out.print("Enter price: ");
+		iPrice = Validate.checkInputDouble();
+		System.out.print("Enter noCD: ");
+		noCD = Validate.checkInputInt();
+		System.out.print("Enter number: ");
+		iQttt = Validate.checkInputInt();
+	}
+	
+	@Override
+	public void display() {
+		System.out.println("ID: "+ id + " - " + "Name: " + iName + " - "+ "Price: " + iPrice + " - "+ "No CD: " + noCD + " - "+ "Number: " + iQttt);
+	}
+}

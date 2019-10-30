@@ -1,0 +1,13 @@
+package pro03;
+
+public class Sofware extends ShopItem{
+	int noCD;
+	
+	
+	
+	@Override
+	public double getPriceShip() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}

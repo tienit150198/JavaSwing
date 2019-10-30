@@ -1,0 +1,25 @@
+package pro03;
+
+import java.util.LinkedList;
+
+public class ShopItem {
+	LinkedList<Item> itemlist;
+
+	public ShopItem() {
+		super();
+	}
+
+	public ShopItem(LinkedList<Item> itemlist) {
+		super();
+		this.itemlist = itemlist;
+	}
+
+	LinkedList<Item> getItemlist() {
+		return itemlist;
+	}
+
+	void setItemlist(LinkedList<Item> itemlist) {
+		this.itemlist = itemlist;
+	}
+
+}

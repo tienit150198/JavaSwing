@@ -1,0 +1,6 @@
+package pro03;
+
+public class BookItem extends Item{
+	int weight;
+
+}

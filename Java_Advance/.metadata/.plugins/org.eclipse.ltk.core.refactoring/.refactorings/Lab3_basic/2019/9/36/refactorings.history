@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;InputVariable.java&apos; to &apos;thu7_09.07/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;Lab3_basic&apos;&#x0D;&#x0A;- Destination element: &apos;thu7_09.07/src/(default package)&apos;&#x0D;&#x0A;- Original element: &apos;prob1.InputVariable.java&apos;" description="Copy compilation unit" destination="=thu7_09.07/src&lt;" element1="/src&lt;prob1{InputVariable.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1567822593870" units="1" version="1.0"/>
+</session>

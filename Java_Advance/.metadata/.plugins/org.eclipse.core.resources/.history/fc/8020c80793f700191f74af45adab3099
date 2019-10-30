@@ -1,0 +1,36 @@
+package pro03;
+
+public class Item {
+	String name;
+	double price;
+	public Item() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Item(String name, double price, double shipPrice) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.shipPrice = shipPrice;
+	}
+	String getName() {
+		return name;
+	}
+	double getPrice() {
+		return price;
+	}
+	double getShipPrice() {
+		return shipPrice;
+	}
+	void setName(String name) {
+		this.name = name;
+	}
+	void setPrice(double price) {
+		this.price = price;
+	}
+	void setShipPrice(double shipPrice) {
+		this.shipPrice = shipPrice;
+	}
+	
+	
+}

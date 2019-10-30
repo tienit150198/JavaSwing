@@ -1,0 +1,69 @@
+package pro03;
+
+import java.util.List;
+
+	List<BookItem> booklist;
+	String name;
+	double priceTotal;
+	List<Sofware> sofwarelist;
+	boolean type;
+
+	public Customer() {
+		super();
+	}
+
+	public Customer(String name, double priceTotal, boolean type, List<BookItem> booklist, List<Sofware> sofwarelist) {
+		super();
+		this.name = name;
+		this.priceTotal = priceTotal;
+		this.type = type;
+		this.booklist = booklist;
+		this.sofwarelist = sofwarelist;
+	}
+
+	List<BookItem> getBooklist() {
+		return booklist;
+	}
+
+	String getName() {
+		return name;
+	}
+
+	double getPriceTotal() {
+		return priceTotal;
+	}
+
+	List<Sofware> getSofwarelist() {
+		return sofwarelist;
+	}
+
+	boolean isType() {
+		return type;
+	}
+
+	void setBooklist(List<BookItem> booklist) {
+		this.booklist = booklist;
+	}
+
+	void setName(String name) {
+		this.name = name;
+	}
+
+	void setPriceTotal(double priceTotal) {
+		this.priceTotal = priceTotal;
+	}
+
+	void setSofwarelist(List<Sofware> sofwarelist) {
+		this.sofwarelist = sofwarelist;
+	}
+
+	void setType(boolean type) {
+		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [booklist=" + booklist + ", name=" + name + ", priceTotal=" + priceTotal + ", sofwarelist="
+				+ sofwarelist + ", type=" + type + "]";
+	}
+}

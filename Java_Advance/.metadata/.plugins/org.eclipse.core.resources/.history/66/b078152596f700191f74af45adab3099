@@ -1,0 +1,30 @@
+package pro03;
+
+import java.util.LinkedList;
+
+public abstract class ShopItem implements IShipPrice {
+	LinkedList<Item> itemlist;
+
+	public ShopItem() {
+		super();
+	}
+
+	public ShopItem(LinkedList<Item> itemlist) {
+		super();
+		this.itemlist = itemlist;
+	}
+
+	LinkedList<Item> getItemlist() {
+		return itemlist;
+	}
+
+	void setItemlist(LinkedList<Item> itemlist) {
+		this.itemlist = itemlist;
+	}
+
+	@Override
+	public double getPriceShip() {
+		return 0;
+	}
+
+}

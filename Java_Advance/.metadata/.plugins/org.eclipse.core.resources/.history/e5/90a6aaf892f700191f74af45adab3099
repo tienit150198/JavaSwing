@@ -1,0 +1,28 @@
+package pro03;
+
+public class Book extends Item {
+	int weight;
+	
+	public Book() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Book(int weight) {
+		super();
+		this.weight = weight;
+	}
+
+	public Book(String name, double price, double shipPrice) {
+		super(name, price, shipPrice);
+	}
+
+	int getWeight() {
+		return weight;
+	}
+
+	void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+}

@@ -1,0 +1,107 @@
+package pro03;
+
+public abstract class ShopItem implements IShipPrice, Comparable<ShopItem> {
+	int id;
+	String iName;
+	double iPrice;
+	int iQttt;
+
+	public ShopItem() {
+		super();
+	}
+
+	public ShopItem(int id, String iName, double iPrice, int iQttt) {
+		super();
+		this.id = id;
+		this.iName = iName;
+		this.iPrice = iPrice;
+		this.iQttt = iQttt;
+	}
+
+	int getId() {
+		return id;
+	}
+
+	String getiName() {
+		return iName;
+	}
+
+	double getiPrice() {
+		return iPrice;
+	}
+
+	int getiQttt() {
+		return iQttt;
+	}
+
+	void setId(int id) {
+		this.id = id;
+	}
+
+	void setiName(String iName) {
+		this.iName = iName;
+	}
+
+	void setiPrice(double iPrice) {
+		this.iPrice = iPrice;
+	}
+
+	void setiQttt(int iQttt) {
+		this.iQttt = iQttt;
+	}
+
+	@Override
+	public String toString() {
+		return "ShopItem [id=" + id + ", iName=" + iName + ", iPrice=" + iPrice + ", iQttt=" + iQttt + "]";
+	}
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((iName == null) ? 0 : iName.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(iPrice);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + iQttt;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ShopItem other = (ShopItem) obj;
+		if (iName == null) {
+			if (other.iName != null)
+				return false;
+		} else if (!iName.equals(other.iName))
+			return false;
+		if (Double.doubleToLongBits(iPrice) != Double.doubleToLongBits(other.iPrice))
+			return false;
+		if (iQttt != other.iQttt)
+			return false;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+
+	@Override
+	public int compareTo(ShopItem o) {
+		return iName.compareTo(o.iName);
+	}
+
+	public abstract void display();
+}

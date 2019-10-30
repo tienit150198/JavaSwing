@@ -1,0 +1,10 @@
+package pro02;
+
+import pro03.ManagerShop;
+
+public class Test {
+
+	public static void main(String[] args) {
+		new ManagerShop().run();
+	}
+}

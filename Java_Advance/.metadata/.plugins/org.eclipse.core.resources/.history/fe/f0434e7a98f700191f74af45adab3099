@@ -1,0 +1,11 @@
+package pro03;
+
+import java.util.Scanner;
+
+public class Shop {
+	static Scanner scn = new Scanner(System.in);
+	String customerName;
+	Store st;
+	Basket cart;
+
+}

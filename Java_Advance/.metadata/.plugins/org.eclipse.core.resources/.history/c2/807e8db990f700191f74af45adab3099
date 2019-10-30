@@ -1,0 +1,6 @@
+package pro03;
+
+public class Customer {
+	String name;
+	Basket basket;
+}

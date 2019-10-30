@@ -1,0 +1,9 @@
+package pro03;
+
+import java.util.LinkedList;
+
+public abstract class ShopItem implements IShipPrice {
+	String id, iName, iPrice;
+	int iQttt;
+	
+}

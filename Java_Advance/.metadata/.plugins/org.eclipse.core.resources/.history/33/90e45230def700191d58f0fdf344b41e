@@ -1,0 +1,93 @@
+package pro03;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Store {
+	static Scanner scn = new Scanner(System.in);
+	ArrayList<ShopItem> ls;
+
+	public Store() {
+		ls = new ArrayList<>();
+	};
+
+	private ShopItem newShopItem(int type) {
+		int type;
+		ShopItem shopItem;
+		String iName;
+		int id, iQttt;
+		double iPrice;
+
+		id = Validate.getIdMaxFromShopItem(ls);
+		System.out.print("Enter Name: ");
+		iName = Validate.checkInputString();
+		System.out.print("Enter price: ");
+		iPrice = Validate.checkInputDouble();
+		System.out.print("Enter number: ");
+		iQttt = Validate.checkInputInt();
+
+		if (type == 1) {
+			int noCD;
+			System.out.print("Enter noCD: ");
+			noCD = Validate.checkInputInt();
+
+			shopItem = new Software(noCD, id, iName, iPrice, iQttt);
+		} else {
+			int weight;
+			System.out.print("Enter weight: ");
+			weight = Validate.checkInputInt();
+
+			shopItem = new Book(weight, id, iName, iPrice, iQttt);
+		}
+
+		return shopItem;
+	}
+
+	public void addItems() {
+		ls.add(newShopItem());
+		System.out.println("add item successfully!!!");
+	}
+
+	public void updateItems() {
+		displayListItems();
+
+		System.out.println("Enter id your choice : ");
+		int id = Validate.checkInputInt();
+
+		int found = Validate.findIdFromShopItem(ls, id);
+		if (found == -1) {
+			System.out.println("ID not found");
+			return;
+		}
+
+		ShopItem shopUpdate = ls.get(found);
+		shopUpdate.input();
+
+		System.out.println("update item successfully!!!");
+
+	}
+
+	public void displayListItems() {
+		ls.forEach(x -> x.display());
+	}
+
+	public void removeItems() {
+
+		displayListItems();
+
+		System.out.println("Enter id your choice : ");
+		int id = Validate.checkInputInt();
+
+		int found = Validate.findIdFromShopItem(ls, id);
+		if (found == -1) {
+			System.out.println("ID not found");
+			return;
+		}
+
+		ls.remove(found);
+
+		System.out.println("remove item successfully!!!");
+
+	}
+
+}

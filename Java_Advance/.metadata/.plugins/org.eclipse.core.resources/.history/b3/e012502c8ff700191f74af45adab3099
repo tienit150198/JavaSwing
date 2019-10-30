@@ -1,0 +1,7 @@
+package pro03;
+
+public class Item {
+	String name;
+	double price;
+	double shipPrice;
+}

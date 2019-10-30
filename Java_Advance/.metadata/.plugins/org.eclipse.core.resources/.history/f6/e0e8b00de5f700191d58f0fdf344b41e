@@ -1,0 +1,5 @@
+package pro03;
+
+public interface IShipPrice {
+	public double getPriceShip();
+}

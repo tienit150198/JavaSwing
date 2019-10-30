@@ -1,0 +1,53 @@
+package pro03;
+
+public abstract class ShopItem implements IShipPrice, Comparable<ShopItem> {
+	int id;
+	String iName;
+	double iPrice;
+	int quantity;
+
+	public ShopItem() {
+		super();
+	}
+
+	public ShopItem(int id, String iName, double iPrice, int quantity) {
+		super();
+		this.id = id;
+		this.iName = iName;
+		this.iPrice = iPrice;
+		this.quantity = quantity;
+	}
+
+	int getId() {
+		return id;
+	}
+
+	String getiName() {
+		return iName;
+	}
+
+	double getiPrice() {
+		return iPrice;
+	}
+
+	int getQuantity() {
+		return quantity;
+	}
+
+	@Override
+	public String toString() {
+		return "ShopItem [id=" + id + ", iName=" + iName + ", iPrice=" + iPrice + ", quantity=" + quantity + "]";
+	}
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+
+	@Override
+	public int compareTo(ShopItem o) {
+		return iName.compareTo(o.iName);
+	}
+	
+	public abstract void display();
+}

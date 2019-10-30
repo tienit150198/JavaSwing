@@ -1,0 +1,11 @@
+package pro03;
+
+public class Sofware extends Item implements IShipPrice {
+	
+	@Override
+	public double getPriceShip() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

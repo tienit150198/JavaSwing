@@ -1,0 +1,14 @@
+package pro03;
+public class Test {
+
+	public static void main(String[] args) {
+		Store store = new Store();
+		Shop shop = new Shop();
+		store.ls.add(new Book(1, "111", "Conan", 10.3, 10)); 
+		store.ls.add(new Book(2, "222", "Doreamon", 1.2, 10)); 
+		 store.ls.add(new Software(7, "333", "My Tam", 7.8, 10)); 
+		 store.ls.add(new Book(3, "444", "Tom", 5.5, 10)); 
+		 store.ls.add(new Software(5, "555", "Snow", 6, 10)); 
+		store.displayListItems();
+	}
+}
