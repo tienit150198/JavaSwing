@@ -5,6 +5,29 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexService {
+	public static ArrayList<String> getValueDefine(String text){
+		ArrayList<String> define = new ArrayList<>();
+		Pattern pattern = Pattern
+				.compile("#define[\\s]+([\\w]*)[\\s]+([\\w].*)");
+		Matcher matcher = pattern.matcher(text);
+
+		// kiểm tra ở text có for hay không. Nếu có thì lấy ra rồi xóa đoạn đó đi.
+		String key = "", value = "";
+		while (matcher.find()) {
+			if(matcher.groupCount() >= 2) {
+				key = matcher.group(1);
+				value = matcher.group(2);
+			}
+		}
+		
+		if(key != "" && value != "") {
+			define.add(key);
+			define.add(value);
+		}
+		
+		return define;
+	}
+	
 	public static Collection<? extends String> getForSyntax(String text) {
 		List<String> isList = new ArrayList<>();
 		Pattern pattern = Pattern

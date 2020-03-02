@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.swing.JTextArea;
@@ -42,5 +43,19 @@ public class Utility {
 	public static int min(int x, int y, int z) {
 		return Math.min(x, Math.min(y, z));
 	}
-
+	
+	public static List<String> sortListZtoA(List<String> isList){
+		isList.sort( new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				if(o2.length() > o1.length())
+					return 1;
+				if(o2.length() == o1.length())
+					return o2.compareToIgnoreCase(o1);
+				return -1;
+//				return o2.length() - o1.length();
+			}
+		});
+		return isList;
+	}
 }

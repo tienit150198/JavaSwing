@@ -1,6 +1,6 @@
 
 /*
- * CardLayoutDemo.java
+ * CompareCode
  *
  */
 import java.awt.BorderLayout;

@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -45,10 +44,13 @@ public class ManagerAnalyzeText {
 		List<String> listResult = new ArrayList<String>();
 
 		isMap.forEach((dataType, setVariable) -> {
+			List<String> listVariable = new ArrayList<>(setVariable);
+			listVariable = Utility.sortListZtoA(listVariable);
+			
 			List<String> listTmp = new LinkedList<>();
 			int number = getNumber(dataType);
 
-			for (String string : setVariable) {
+			for (String string : listVariable) {
 				if (!isDigitSpecial(string)) {
 					listTmp.add(String.valueOf(
 							string + "=" + dataType.charAt(0) + dataType.charAt(dataType.length() - 1) + (number + 1)));
@@ -216,7 +218,6 @@ public class ManagerAnalyzeText {
 		listCode.forEach(code -> {
 			mResult.putAll(getDefineSyntax(code));
 		});
-//		System.out.println(mResult);
 		return mResult;
 	}
 
@@ -225,11 +226,14 @@ public class ManagerAnalyzeText {
 		if (!text.startsWith("#define"))
 			return mResult;
 
-		String split[] = text.split(" ");
-		if (split.length != 3)
-			return mResult;
+		ArrayList<String> define = RegexService.getValueDefine(text);
+		if (define.size() >= 2)
+			mResult.put(define.get(0), define.get(1));
+//		String split[] = text.split(" ");
+//		if (split.length != 3)
+//			return mResult;
 
-		mResult.put(split[1].trim(), split[2].trim());
+//		mResult.put(split[1].trim(), split[2].trim());
 
 		return mResult;
 	}
@@ -284,12 +288,8 @@ public class ManagerAnalyzeText {
 			isList.add(replaceText(code));
 		}
 		listVariables = changeVariable(variables);
-		listVariables.sort(new Comparator<String>() {
-			@Override
-			public int compare(String o1, String o2) {
-				return o2.length() - o1.length();
-			}
-		});
+		listVariables = Utility.sortListZtoA(listVariables);
+//		System.out.println(listVariables);
 
 		return isList;
 	}
@@ -300,7 +300,6 @@ public class ManagerAnalyzeText {
 		listCode.forEach(code -> {
 			String text = replaceDefineToCode(isMap, code);
 			if (text != null) {
-				System.out.println(text);
 				listResult.add(text);
 			}
 		});
@@ -316,19 +315,22 @@ public class ManagerAnalyzeText {
 
 		for (String defineValue : keySet) {
 			String oldChar = defineValue;
-			System.out.println("OLDCHAR = " + oldChar);
 			String newChar = isMap.get(defineValue);
-			System.out.println("NEWCHAR = " + newChar);
 
 			String regex = "([^a-zA-Z0-9]" + RegexService.changeCodeRegex(oldChar) + "\\W*)";
-			System.out.println("REGEX = " + regex);
-			if (code.contains(oldChar)) {
+			if (oldChar.trim().equals(code.trim())) {
+				result = newChar;
+			} else if (code.trim().startsWith(oldChar.trim())) {
+				regex = "(" + RegexService.changeCodeRegex(oldChar) + "\\W*)";
+				result = result.replaceFirst(regex,newChar + " ");
+			} else if (code.contains(oldChar)) {
 				Pattern pattern = Pattern.compile(regex);
 				Matcher matcher = pattern.matcher(code);
 				String textTail = "", textHead = "";
 				while (matcher.find()) {
 					String tmp = matcher.group(1).toString();
 					textHead = String.valueOf(tmp.charAt(0) + "");
+					
 					textTail = String.valueOf(tmp.charAt(tmp.length() - 1) + "");
 
 					if (isOpen(textHead)) {
@@ -337,14 +339,8 @@ public class ManagerAnalyzeText {
 						}
 					}
 
-					System.out.println(tmp + " -> " + textTail + " -> " + textHead);
 					result = result.replaceFirst(regex, textHead + newChar + textTail);
-					System.out.println("RESULT = " + result);
 				}
-
-//				System.out.println("1 = " + textHead + newChar + textTail);
-
-//				result = code.replaceAll(regex, newChar);
 			}
 			code = result;
 		}
